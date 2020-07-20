@@ -1,3 +1,3 @@
-# Super Duper Eureka 
+# Super Duper Eureka
 
 > I don't know what this is
