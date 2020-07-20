@@ -13,9 +13,6 @@ RUN apk update \
 RUN docker-php-ext-install opcache pdo_mysql mysqli
 RUN docker-php-ext-enable opcache
 
-RUN pecl install mongodb
-RUN docker-php-ext-enable mongodb
-
 RUN pecl install xdebug
 RUN docker-php-ext-enable xdebug
 
