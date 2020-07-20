@@ -2,12 +2,10 @@ version: '3.5'
 
 services:
   php:
-    build: ./docker/php
+    build: ./dev/docker/php
     container_name: "php"
     volumes:
       - ./:/var/www/app:delegated
-      - ./docker/php/php.ini:/usr/local/etc/php/php.ini:delegated
-      - ~/.composer/docker-cache/:/root/.composer:cached
     depends_on:
       - mysql
 
@@ -18,7 +16,7 @@ services:
       - "80:80"
     volumes:
       - ./:/var/www/app:delegated
-      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:delegated
+      - ./dev/docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:delegated
     depends_on:
       - php
 
