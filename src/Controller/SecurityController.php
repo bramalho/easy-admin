@@ -22,7 +22,7 @@ class SecurityController extends AbstractController
             'error' => $authenticationUtils->getLastAuthenticationError(),
             'last_username' => $authenticationUtils->getLastUsername(),
             'translation_domain' => 'admin',
-            'page_title' => 'Super Duper Eureka',
+            'page_title' => 'Demo',
             'csrf_token_intention' => 'authenticate',
             'target_path' => $this->generateUrl('dashboard'),
             'username_label' => 'Your username',
