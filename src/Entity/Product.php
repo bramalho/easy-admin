@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\ProductRepository;
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -29,14 +28,9 @@ class Product
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="ProductAttribute", mappedBy="product")
+     * @ORM\Column(type="array")
      */
-    private $attributes;
-
-    public function __construct()
-    {
-        $this->attributes = new ArrayCollection();
-    }
+    private $attributes = [];
 
     public function getId(): ?int
     {
@@ -67,12 +61,12 @@ class Product
         return $this;
     }
 
-    public function getAttributes(): ArrayCollection
+    public function getAttributes(): ?array
     {
         return $this->attributes;
     }
 
-    public function setAttributes(ArrayCollection $attributes): self
+    public function setAttributes(array $attributes): self
     {
         $this->attributes = $attributes;
 
