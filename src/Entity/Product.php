@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ProductRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -26,6 +27,16 @@ class Product
      * @ORM\Column(type="string", length=255)
      */
     private $name;
+
+    /**
+     * @ORM\OneToMany(targetEntity="ProductAttribute", mappedBy="product")
+     */
+    private $attributes;
+
+    public function __construct()
+    {
+        $this->attributes = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -52,6 +63,18 @@ class Product
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getAttributes(): ArrayCollection
+    {
+        return $this->attributes;
+    }
+
+    public function setAttributes(ArrayCollection $attributes): self
+    {
+        $this->attributes = $attributes;
 
         return $this;
     }
